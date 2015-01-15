@@ -38,12 +38,18 @@ function createPalatte(){
    if (colorArray[i] === "erase"){
      block.innerHTML = "X"
    }
-   block.className = "color block"
+   block.className = "block"
    block.addEventListener('click', function(){
      setColor(this.style.background)
    })
    column.appendChild(block);
  }
+ var colorPicker = document.createElement("input");
+ colorPicker.setAttribute('type','color')
+ colorPicker.addEventListener('change', function(){
+   setColor(this.value)
+ })
+ column.appendChild(colorPicker);
  document.getElementsByTagName('body')[0].appendChild(column);
 }
 
